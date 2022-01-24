@@ -13,5 +13,10 @@ pipeline {
 					}
 				}
 			}
+			stage('Ping') {
+				steps {
+					sh 'docker run hkalita1998/kong-deck:$BUILD_NUMBER --kong-addr http://10.102.194.221:8001 ping'
+				}
+			}
 		}
 }	
